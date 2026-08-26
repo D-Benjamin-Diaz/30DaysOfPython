@@ -80,3 +80,38 @@ print(person.keys())
 print(person.values())
 
 # ======================= Exercises Day 8 =============================
+
+dog = {}
+
+dog["name"] = "Rufus"
+dog["color"] = "brown"
+dog["breed"] = "German Shepherd"
+dog["legs"] = 4
+dog["age"] = 5
+
+
+student = {
+    "fname": "JP",
+    "lname": "Diaz",
+    "gender": "male",
+    "age": 18,
+    "maritalS": "single",
+    "skills": ["calculus", "porogramming", "speech"],
+    "country": "ESA",
+    "city": "Sivar",
+    "address": "Av. Jiquilisco",
+}
+
+print(len(student))
+
+print(student.get("skills"))
+print(type(student.get("skills")))
+
+print(student.keys())
+print(student.values())
+print(student.items())
+
+dog.pop()
+print(dog)
+
+del dog
