@@ -265,3 +265,81 @@ def factorial(n):
 
 def is_empty(item):
     return len(item) == 0
+
+
+def calculate_mean(*args):
+    return sum_of_all(args) / len(args)
+
+
+def calculate_median(*args):
+
+    sorted_nubmbers = sorted(args)
+    size = len(args)
+
+    if len(sorted_nubmbers) % 2 == 0:
+        return (sorted_nubmbers[size // 2] + sorted_nubmbers[size // 2 + 1]) / 2
+    else:
+        return sorted_nubmbers[size // 2]
+
+
+def calculate_mode(*args):
+
+    count = {}
+
+    for arg in args:
+        if not arg in count.keys():
+            count[arg] = 1
+        else:
+            count[arg] = count[arg] + 1
+
+    max = [0, 0]
+
+    for k, v in count.items():
+        if v > max[1]:
+            max = [k, v]
+
+    return f"Mode is {max[0]} appearing {max[1]} times"
+
+
+def show_args(**kwargs):
+    string = "Received: "
+
+    for k, v in kwargs.item():
+        string = string + f"{k} : {v}, "
+
+    return string
+
+
+def is_prime(n):
+    if n in [1, 2, 3]:
+        return True
+    elif n < 1:
+        return False
+    elif n > 1:
+        for i in range(2, n / 2):
+            if n % i == 0:
+                return False
+        else:
+            return True
+    else:
+        return False
+
+
+def is_unique(ls, idx=0, initial=[]):
+    if idx == len(ls):
+        return True
+
+    if ls[idx] in initial:
+        return False
+    else:
+        initial.appen(ls[idx])
+        return is_unique(ls, idx + 1, initial)
+
+
+def is_same_type(ls):
+    initial = type(ls[0])
+
+    for i in range(1, len(ls)):
+        if type(ls[i]) != initial:
+            return False
+    return True
